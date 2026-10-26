@@ -1,0 +1,11 @@
+project: savantenvs/efixplorer
+target: fuzz_firmware
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_firmware/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_firmware
+    libfuzzer: true
+    timeout: 10
+    env:
+      MFUZZ_COMPAT_LEVEL: '2'
